@@ -759,6 +759,8 @@ class _FeedParserMixin(
         context = self._get_context()
         detail = context.get('%ss' % key, [FeedParserDict()])[-1]
         if detail:
+            if key in context:
+                return
             name = detail.get('name')
             email = detail.get('email')
             if name and email:
